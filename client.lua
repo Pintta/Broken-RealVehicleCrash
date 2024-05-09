@@ -8,8 +8,8 @@ RegisterNetEvent('vehiclecrashmode', function(countDown, accidentLevel)
         disableControls = true
         effectActive = true
         blackOutActive = true
-		DoScreenFadeOut(100)
-		Wait(1000)
+	DoScreenFadeOut(100)
+	Wait(1000)
         DoScreenFadeIn(250)
         blackOutActive = false
         StartScreenEffect('PeyoteEndOut', 0, true)
