@@ -8,8 +8,8 @@ RegisterNetEvent('vehiclecrashmode', function(countDown, accidentLevel)
         disableControls = true
         effectActive = true
         blackOutActive = true
-	DoScreenFadeOut(100)
-	Wait(1000)
+	    DoScreenFadeOut(100)
+	    Wait(1000)
         DoScreenFadeIn(250)
         blackOutActive = false
         StartScreenEffect('PeyoteEndOut', 0, true)
@@ -60,6 +60,12 @@ CreateThread(function()
                         if (oldBodyDamage - currentDamage) >= 300 or (oldSpeed - currentSpeed)  >= 130 then
                             oldBodyDamage = currentDamage
                             TriggerEvent('vehiclecrashmode', 33, 5)
+                            local vehicle = GetVehiclePedIsIn(PlayerPedId())
+                            if DoesEntityExist(vehicle) then
+                                for i = 0, 3 do
+                                    BreakOffVehicleWheel(vehicle, i, true, false, true, false)
+                                end
+                            end
                         elseif (oldBodyDamage - currentDamage) >= 65 or (oldSpeed - currentSpeed)  >= 95 then
                             TriggerEvent('vehiclecrashmode', 25, 4)
                             oldBodyDamage = currentDamage
